@@ -1,0 +1,19 @@
+{
+    "name": "mrkaa/mvc_purephp_1",
+    "description": "MVC Framework in pure PHP from Gary Clark course",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "MvcPurePhp\\Framework\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kamil",
+            "email": "mr.kaam@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
