@@ -6,9 +6,12 @@
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-/** To delete in future */
- $var = ['test1' , 'test2'];
- dd($var);
- echo "<h1>Temporary Main page</h1>";
+use MvcPurePhp\Framework\Http\Request;
+
+/** Request received */
+ $request = Request::createFromGlobals();
+
+ dd($request);
+
 
 
