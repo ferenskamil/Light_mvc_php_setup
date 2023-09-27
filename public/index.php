@@ -7,11 +7,15 @@
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 use MvcPurePhp\Framework\Http\Request;
+use MvcPurePhp\Framework\Http\Response;
 
 /** Request received */
  $request = Request::createFromGlobals();
 
- dd($request);
 
+/** Content */
+ $content = '<h1>This is temporary page</h1>';
 
-
+/** Response - simply version*/
+ $response = new Response(content: $content, status: 200, headers: []);
+ $response->send();
