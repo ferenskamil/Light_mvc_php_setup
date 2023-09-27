@@ -4,7 +4,7 @@ namespace App\Config;
 class DbConfig
 {
     private string $hostname = 'localhost';
-    private string $dbName = 'exampleDatabase';
+    private string $dbName = 'mvcTestDb';
     private string $username = 'root';
     private string $password = '';
 

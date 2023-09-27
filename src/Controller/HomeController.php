@@ -2,12 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use DateTime;
 use MvcPurePhp\Framework\Http\Response;
 
 class HomeController
 {
     public function index() : Response
     {
+        /** test - start */
+        /** @var \App\Entity\User $user */
+        $user = new User();
+        $user->setUser("Kamil", "Ferens", new DateTime());
+        /** test - end */
+
         $content = '<h1>Hello World</h1>';
 
         return new Response($content);
