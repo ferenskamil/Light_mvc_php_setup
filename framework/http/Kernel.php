@@ -17,48 +17,25 @@ class Kernel
             foreach ($routes as $route) {
 
                 $r->addRoute(...$route);
-
-                // $r->addRoute('GET', '/', function(){
-                // $content = "<h1>Jestem w routerze</h1>";
-
-                // return new Response($content);
-                // });
-
             }
-
-            // $r->addRoute('GET', '/', function(){
-            //     $content = "<h1>Jestem w routerze</h1>";
-
-            //     return new Response($content);
-            // });
-
-            // $r->addRoute('GET', '/user/{id: \d+}', function($routeParams){
-
-            //     $content = <<<HTML
-            //         <h1>Podstrona nr 2</h1>
-            //         <p>Przekazano parametr {$routeParams['id']}</p>
-            //     HTML;;
-
-            //     return new Response($content);
-            // });
         });
 
         // Dispatch a URI, to obtain the route info
         $routeInfo = $dispatcher->dispatch(
-            // httpMethod: $request->server['REQUEST_METHOD'],
             httpMethod: $request->getMethod(),
-            // uri: $request->server['REQUEST_URI']
             uri: $request->getPathInfo()
         );
 
 
-        // [$status, $handlers, $vars] = $routeInfo;  || simpliest notation
-        // $status = $routeInfo[0];
-        $handler = $routeInfo[1];
+        // [$status, [$controller, $method], $vars] = $routeInfo;  || simpliest notation
+        $status = $routeInfo[0];
+        $controller = $routeInfo[1][0];
+        $method = $routeInfo[1][1];
         $vars = $routeInfo[2];
 
         // Call the handler, provided by the route info, in order to create a Response
-
-        return $handler($vars);
+        // $response = (new $controller())->$method($vars);
+        $response = call_user_func_array([new $controller(), $method], $vars);
+        return $response;
     }
 }

@@ -19,12 +19,8 @@ define('BASE_PATH', dirname(__DIR__));
 /** Content */
  $content = '<h1>This is temporary page</h1>';
 
-/** Response - simply version*/
-//  $response = new Response(content: $content, status: 200, headers: []);
-//  $response->send();
-
-/** Response - kernel version */
+/** Response*/
  $kernel = new Kernel();
 
  $response = $kernel->handle($request);
- $response->send();
+ $response->send(); 
