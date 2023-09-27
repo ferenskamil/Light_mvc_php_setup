@@ -10,7 +10,7 @@ use MvcPurePhp\Framework\Http\Response;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-
+define('BASE_PATH', dirname(__DIR__));
 
 /** Request received */
  $request = Request::createFromGlobals();
