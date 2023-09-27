@@ -1,4 +1,8 @@
 <?php declare(strict_types=1);
+use MvcPurePhp\Framework\Http\Kernel;
+use MvcPurePhp\Framework\Http\Request;
+use MvcPurePhp\Framework\Http\Response;
+
 /** STEPS
  *  1. request received
  *  2. perform some logic
@@ -6,8 +10,7 @@
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-use MvcPurePhp\Framework\Http\Request;
-use MvcPurePhp\Framework\Http\Response;
+
 
 /** Request received */
  $request = Request::createFromGlobals();
@@ -17,5 +20,11 @@ use MvcPurePhp\Framework\Http\Response;
  $content = '<h1>This is temporary page</h1>';
 
 /** Response - simply version*/
- $response = new Response(content: $content, status: 200, headers: []);
+//  $response = new Response(content: $content, status: 200, headers: []);
+//  $response->send();
+
+/** Response - kernel version */
+ $kernel = new Kernel();
+
+ $response = $kernel->handle($request);
  $response->send();
