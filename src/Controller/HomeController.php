@@ -5,19 +5,19 @@ namespace App\Controller;
 use App\Entity\User;
 use DateTime;
 use MvcPurePhp\Framework\Http\Response;
+use MvcPurePhp\Framework\Controller\AbstractController;
 
-class HomeController
+class HomeController extends AbstractController
 {
     public function index() : Response
     {
         /** test - start */
         /** @var \App\Entity\User $user */
-        $user = new User();
-        $user->setUser("Agnieszka", "Bociek", new DateTime());
+        // $user = new User();
+        // $user->setUser("Agnieszka", "Bociek", new DateTime());
         /** test - end */
 
-        $content = '<h1>Hello World</h1>';
-
+        $content = $this->renderHtml('base.php');
         return new Response($content);
     }
 
