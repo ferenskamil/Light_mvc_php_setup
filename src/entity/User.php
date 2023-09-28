@@ -1,26 +1,17 @@
 <?php
 
-/** Tu będą klasy odpowiadające tablicom, ale w uproszczonej formie (ew. do zmiany) */
-
 namespace App\Entity;
 
-use App\Model\Database;
+use App\Entity\ParentEntity;
 use DateTime;
 
-class User
+class User extends ParentEntity
 {
-    private $db;
-
-    public function __construct() {
-
-            $this->db = Database::getInstance()->getConnection();
-    }
     public function getUser(){}
     public function setUser(
         ?string $username = null,
         ?string $password = null,
         ?DateTime $registeredAt = null
-        // ?DateTime $registeredAt = null
     )
     {
         echo "Hello world";
