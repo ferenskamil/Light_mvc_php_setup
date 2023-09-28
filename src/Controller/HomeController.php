@@ -13,7 +13,7 @@ class HomeController
         /** test - start */
         /** @var \App\Entity\User $user */
         $user = new User();
-        $user->setUser("Kamil", "Ferens", new DateTime());
+        $user->setUser("Agnieszka", "Bociek", new DateTime());
         /** test - end */
 
         $content = '<h1>Hello World</h1>';

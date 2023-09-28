@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\ParentEntity;
+use PDO;
 use DateTime;
 
 class User extends ParentEntity
@@ -14,14 +15,15 @@ class User extends ParentEntity
         ?DateTime $registeredAt = null
     )
     {
-        echo "Hello world";
-
-        $time = $registeredAt->format("Y-m-d");
+        $time = $registeredAt->format("Y-m-d H:i:s");
 
         $setUserQuery = $this->db->prepare("INSERT INTO users
                 (username, password, registered_at)
             VALUES
-                ('Kamil', 'Ferens', '" . $time . "');");
+                (:username, :password, :registeredAt);");
+        $setUserQuery->bindValue(':username', $username, PDO::PARAM_STR);
+        $setUserQuery->bindValue(':password', $password, PDO::PARAM_STR);
+        $setUserQuery->bindValue(':registeredAt', $time, PDO::PARAM_STR);
         $setUserQuery->execute();
     }
 }

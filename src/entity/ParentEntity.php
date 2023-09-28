@@ -6,7 +6,7 @@ use App\Model\Database;
 
 class ParentEntity
 {
-    private $db;
+    protected $db;
 
     public function __construct() {
 
