@@ -17,7 +17,7 @@ class HomeController extends AbstractController
         // $user->setUser("Agnieszka", "Bociek", new DateTime());
         /** test - end */
 
-        $content = $this->renderHtml('base.php');
+        $content = $this->renderHtml('pages/testPage.php');
         return new Response($content);
     }
 
