@@ -13,8 +13,8 @@ class HomeController extends AbstractController
     {
         /** test - start */
         /** @var \App\Entity\User $user */
-        // $user = new User();
-        // $user->setUser("Agnieszka", "Bociek", new DateTime());
+        $user = new User();
+        $user->setUser("Agnieszka", "Bociek", new DateTime());
         /** test - end */
 
         $content = $this->renderHtml('pages/testPage.php');
