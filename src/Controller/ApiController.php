@@ -18,7 +18,11 @@ class ApiController extends AbstractController
         $user = new User();
         $allUsers = $user->getAllUsers();
 
-        $content = json_encode($allUsers);
+
+        $content = json_encode($allUsers, JSON_FORCE_OBJECT);
+
+        header('Content-Type: application/json');
+        header("Access-Control-Allow-Origin: *");
 
         return new Response($content);
     }
