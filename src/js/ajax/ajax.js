@@ -1,4 +1,4 @@
-const getBtn = document.querySelector('#get-content-btn');
+const getBtn = document.querySelector('#ajax-get-btn');
 const contentDiv = document.querySelector('#content');
 
 const sendHttpRequest = (method, url) => {
