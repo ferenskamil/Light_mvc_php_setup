@@ -13,3 +13,15 @@ $('#jquery-get-btn').on('click', function () {
 		});
 	});
 });
+
+$('#jquery-add-btn').on('click', function () {
+	console.log('TEST');
+
+	const username = $('#name').val();
+	const password = $('#password').val();
+
+	$.ajax({
+		url: `http://localhost:8000/api/users/insert/${username}/${password}`,
+		method: 'post',
+	});
+});

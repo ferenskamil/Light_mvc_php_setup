@@ -46,3 +46,24 @@ const printUsers = (id, username, password, registered_at) => {
 };
 
 getBtn.addEventListener('click', printUsersWithAjax);
+
+/** POST */
+const ajaxAddBtn = document.querySelector('#ajax-add-btn');
+
+const addUser = () => {
+	const username = document.querySelector('#name').value;
+	const password = document.querySelector('#password').value;
+
+	const xhr = new XMLHttpRequest();
+
+	xhr.open(
+		`POST`,
+		`http://localhost:8000/api/users/insert/${username}/${password}`
+	);
+
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	xhr.send();
+};
+
+ajaxAddBtn.addEventListener('click', addUser);

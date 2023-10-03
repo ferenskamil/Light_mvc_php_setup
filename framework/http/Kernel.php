@@ -26,7 +26,6 @@ class Kernel
             uri: $request->getPathInfo()
         );
 
-
         // [$status, [$controller, $method], $vars] = $routeInfo;  || simpliest notation
         $status = $routeInfo[0];
         $controller = $routeInfo[1][0];

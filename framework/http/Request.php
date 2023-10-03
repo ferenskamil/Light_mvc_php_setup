@@ -22,7 +22,12 @@ class Request
 
     public function getPathInfo() : string
     {
-        return strtok($this->server['REQUEST_URI'], "?");
+
+
+
+
+        // return strtok($this->server['REQUEST_URI'], "?");
+        return strtok($this->server['PATH_INFO'], "?");
     }
 
     public function getMethod() : string

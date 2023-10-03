@@ -13,6 +13,19 @@
 <button id="fetch-get-btn">FETCH - GET</button>
 <button id="jquery-get-btn">JQUERY - GET</button>
 <button id="axios-get-btn">AXIOS - GET</button>
+
+<h1>Dodawanie nowego użytkownika</h1>
+<form action="">
+    <label for="name">Username:</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="password">password:</label>
+    <input type="text" id="password" name="password"><br>
+</form>
+<button id="ajax-add-btn">AJAX - POST</button>
+<button id="fetch-add-btn">FETCH - POST</button>
+<button id="jquery-add-btn">JQUERY - POST</button>
+<button id="axios-add-btn">AXIOS - POST</button>
+
 <div id="content"></div>
 <script src="../../js/ajax/ajax.js"></script>
 <script src="../../js/ajax/fetch.js"></script>

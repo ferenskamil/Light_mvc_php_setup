@@ -18,3 +18,27 @@ async function getUsersByFetch() {
 }
 
 fetchBtn.addEventListener('click', getUsersByFetch);
+
+/** POST */
+const fetchAddBtn = document.querySelector('#fetch-add-btn');
+
+async function addNewUserByFetch() {
+	const username = document.querySelector('#name').value;
+	const password = document.querySelector('#password').value;
+
+	try {
+		await fetch(
+			`http://localhost:8000/api/users/insert/${username}/${password}`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			}
+		);
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+fetchAddBtn.addEventListener('click', addNewUserByFetch);

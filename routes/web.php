@@ -14,5 +14,6 @@ return [
     ['GET', '/api/users', [ApiController::class, 'getAllUsersJson']],
     ['GET', '/api/users/delete/{id: \d+}/{password: [a-zA-Z0-9]+}', [ApiController::class, 'deleteUser']],
     ['GET', '/api/users/update/{id: \d+}/{password: [a-zA-Z0-9]+}/{newUsername: [a-zA-Z0-9]+}', [ApiController::class, 'updateUser']],
-    ['GET', '/api/users/insert/{username: [a-zA-Z0-9]+}/{password: [a-zA-Z0-9]+}', [ApiController::class, 'insertNewUser']],
+    ['POST', '/api/users/insert/{username}/{password}', [ApiController::class, 'insertNewUser']],
+    ['POST', '/api/users/insert', [ApiController::class, 'insertNewUserPost']],
 ];

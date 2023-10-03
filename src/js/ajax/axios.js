@@ -16,3 +16,30 @@ async function getUsersByAxios() {
 }
 
 axiosBtn.addEventListener('click', getUsersByAxios);
+
+/** POST */
+const axiosAddBtn = document.querySelector('#axios-add-btn');
+
+async function addUserbyAxios() {
+	const username = document.querySelector('#name').value;
+	const password = document.querySelector('#password').value;
+
+	try {
+		const response = await axios.post(
+			`http://localhost:8000/api/users/insert/${username}/${password}`,
+			{},
+			{
+				headers: {
+					// 'Content-Type': 'application/json',
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			}
+		);
+
+		console.log(response);
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+axiosAddBtn.addEventListener('click', addUserbyAxios);

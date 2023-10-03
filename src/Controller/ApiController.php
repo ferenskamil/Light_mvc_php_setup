@@ -47,11 +47,34 @@ class ApiController extends AbstractController
 
     public function insertNewUser(string $username, string $password) : Response
     {
+        // header('Content-Type: text/plain');
+        // header("Accept-Charset: utf-8");
+        header("Access-Control-Allow-Origin: *");
+        header("Content-Type: application/x-www-form-urlencoded");
+
         $user = new User();
         $user->setUser($username, $password);
 
-        $content = $this->renderHtml('pages/apis.php');
-        return new Response($content);
+        // $content = $this->renderHtml('pages/apis.php');
+        return new Response("You're pretty");
+
+    }
+    public function insertNewUserPost($data) : Response
+    {
+        // header('Content-Type: text/plain');
+        // header("Accept-Charset: utf-8");
+        header("Access-Control-Allow-Origin: *");
+        // header("Content-Type: application/x-www-form-urlencoded");
+        header("Content-Type: application/json");
+
+        $username = $data['username'] ?? 'test';
+        $password = $data['password'] ?? 'test';
+
+        $user = new User();
+        $user->setUser($username, $password);
+
+        // $content = $this->renderHtml('pages/apis.php');
+        return new Response("You are pretty");
 
     }
 }
